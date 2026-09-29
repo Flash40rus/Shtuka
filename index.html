@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <title>Штука — раннер</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="ui">
+    <div id="score">0</div>
+
+    <div id="menu" class="screen">
+      <h1>ШТУКА</h1>
+      <p class="subtitle">Выбери свою штуку</p>
+      <div id="characters"></div>
+      <button id="playBtn" class="primary">Играть</button>
+      <p class="hint">Тап — прыжок · Свайп вниз — подкат</p>
+    </div>
+
+    <div id="gameover" class="screen hidden">
+      <h2>Игра окончена</h2>
+      <p class="big">Счёт: <span id="finalScore">0</span></p>
+      <p class="dim">Рекорд: <span id="bestScore">0</span></p>
+      <div class="row">
+        <button id="retryBtn" class="primary">Ещё раз</button>
+        <button id="shareBtn" class="secondary">Поделиться</button>
+      </div>
+      <button id="menuBtn" class="ghost">В меню</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
