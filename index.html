@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#0f172a">
-  <title>Штука — раннер</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Штука — раннер с AI-камерой</title>
+  <link rel="stylesheet" href="style.css?v=2">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.1/dist/mobilenet.min.js"></script>
 </head>
 <body>
   <canvas id="game"></canvas>
@@ -15,10 +18,11 @@
 
     <div id="menu" class="screen">
       <h1>ШТУКА</h1>
-      <p class="subtitle">Выбери свою штуку</p>
+      <p class="subtitle">Сфоткай что угодно — и оно побежит</p>
       <div id="characters"></div>
       <button id="playBtn" class="primary">Играть</button>
-      <p class="hint">Тап — прыжок · Свайп вниз — подкат</p>
+      <button id="scanBtn" class="secondary">📸 Сканировать предмет</button>
+      <p class="hint">Тап — прыжок · Свайп вниз — подкат · Долгое нажатие на персонажа — удалить</p>
     </div>
 
     <div id="gameover" class="screen hidden">
@@ -33,6 +37,18 @@
     </div>
   </div>
 
-  <script src="game.js"></script>
+  <div id="scanner" class="scanner hidden">
+    <video id="cam" playsinline autoplay muted></video>
+    <div class="scanner-frame"></div>
+    <div class="scanner-info" id="scannerInfo">Наведи на предмет</div>
+    <div class="scanner-controls">
+      <button id="cancelScan" class="ghost">Отмена</button>
+      <button id="snapBtn" class="primary">Снять</button>
+    </div>
+    <p class="scanner-privacy">Кадры обрабатываются на устройстве и никуда не отправляются</p>
+  </div>
+
+  <script src="game.js?v=2"></script>
+  <script src="scanner.js?v=2"></script>
 </body>
 </html>
